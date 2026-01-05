@@ -140,12 +140,6 @@ export default function AdminPage() {
               {loading ? '로그인 중...' : '로그인'}
             </button>
           </form>
-
-          <p className="text-center text-gray-500 text-sm mt-6">
-            기본 비밀번호: admin1234
-            <br />
-            (.env 파일에서 ADMIN_PASSWORD로 변경 가능)
-          </p>
         </div>
       </div>
     );
