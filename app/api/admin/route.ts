@@ -3,7 +3,6 @@ import { createClient } from '@supabase/supabase-js';
 
 export async function GET(request: NextRequest) {
   try {
-    // 함수 안에서 supabase 클라이언트 생성
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
     
@@ -47,3 +46,11 @@ export async function GET(request: NextRequest) {
     })) || [];
 
     return NextResponse.json({ success: true, data: formattedSubmissions });
+  } catch (error) {
+    console.error('데이터 조회 오류:', error);
+    return NextResponse.json(
+      { success: false, message: '오류가 발생했습니다.' },
+      { status: 500 }
+    );
+  }
+}
